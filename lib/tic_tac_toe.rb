@@ -116,7 +116,7 @@ end
 end
 
 def play(board)
-until over?(board)
+until over?(board) == 0
   gets turn(board)
  end
   if won?(board) == 0
