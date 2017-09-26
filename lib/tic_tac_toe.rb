@@ -116,8 +116,8 @@ end
 end
 
 def play(board)
-until over?(board) == 0
-  gets turn(board)
+until over?(board)
+  turn(board)
  end
   if won?(board) == 0
     puts "Congratulations"
