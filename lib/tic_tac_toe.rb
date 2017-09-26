@@ -50,6 +50,67 @@ until valid_move?(board, index) == true
   user_input = gets.strip
  index = input_to_index(user_input)
 end
-move(board, index, character)
+move(board, index, character= "X")
 display_board(board)
+end
+
+def turn_count(board)
+    count = 0
+  board.each do |player|
+    if player == "X" || player == "O"
+      count += 1
+  end
+end
+  return count
+end
+
+def current_player(board)
+  if turn_count(board) % 2 == 0
+     "X"
+  else
+     "O"
+  end
+end
+
+def won?(board)
+  WIN_COMBINATIONS.each do |win_combination|
+    win = win_combination.all? do |index|
+      board[index] == "X"
+    end
+    if win
+      return win_combination
+    end
+    win = win_combination.all? do |index|
+      board[index] == "O"
+    end
+    if win
+      return win_combination
+    end
+  end
+  return false
+end
+
+def full?(board)
+  board.none?{|token| token == " "}
+end
+
+def draw?(board)
+  !won?(board) && full?(board)
+end
+
+def over?(board)
+  won?(board) || full?(board) || draw?(board)
+end
+
+
+def winner(board)
+ if !(won?(board))
+   return nil
+ end
+   if board[won?(board)[0]] == "X"
+     return "X"
+   end
+  if board[won?(board)[0]] == "O"
+    return "O"
+end
 end
