@@ -119,9 +119,9 @@ def play(board)
 until over?(board)
   turn(board)
  end
-  if won?(board) == 0
-    puts "Congratulations"
-  else draw?(board) == 0
-    puts "It was a draw"
+  if won?(board) 
+    puts "Congratulations #{winner(board)}!"
+  else draw?(board) 
+    puts "Cat's Game!"
 end
 end
