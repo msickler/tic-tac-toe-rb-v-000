@@ -50,7 +50,7 @@ until valid_move?(board, index) == true
   user_input = gets.strip
  index = input_to_index(user_input)
 end
-move(board, index, character)
+move(board, index, current_player(board))
 display_board(board)
 end
 
