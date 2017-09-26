@@ -40,3 +40,16 @@ else
   false
 end
 end
+
+def turn(board)
+  puts "Please enter 1-9:"
+ user_input = gets.strip
+index = input_to_index(user_input)
+until valid_move?(board, index) == true
+  puts "please try a valid move. Use an empty location 1 through 9"
+  user_input = gets.strip
+ index = input_to_index(user_input)
+end
+move(board, index, character)
+display_board(board)
+end
